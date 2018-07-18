@@ -1,5 +1,7 @@
 class DockingStation:
 
+    DEFAULT_CAPACITY = 20
+
     def __init__(self):
         self.rack = []
 
