@@ -22,5 +22,16 @@ class TestDockingStation(unittest.TestCase):
         station = DockingStation(15)
         self.assertEqual( station.capacity, 15)
 
+    def test_release_bike(self):
+        station = DockingStation()
+        station.dock_bike('Bike')
+        self.assertEqual( station.release_bike(), 'Bike')
+
+    def test_no_bike_released_if_rack_empty(self):
+        station = DockingStation()
+        with self.assertRaises(Exception) as e:
+            station.release_bike()
+            self.assertEqual(e.exception.message, 'Bike rack is empty!')
+
 if __name__ == '__main__':
     unittest.main()
